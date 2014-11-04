@@ -1,18 +1,19 @@
 // JSON - resume data (bio, work, projects and education)
 var bio = {
-		"name": "George Kanchanavaleerat",
-		"role": "Front End Web Developer",
-		"welcomeMessge": "Hello there!",
-		"contacts": {
-			/*"mobile": "360-111-1111",*/
-			"email": "gkandoit-0001@yahoo.com",
-			"twitter": "@gkanch",
-			"github": "gkanch",
-			"location": "Vancouver, WA",
-		},
-		"skills": ["Programming", "Youth Ministry Leadership", "Montessori Preschool Teacher"],
-		"bioPic": "images/georgesm.jpg"
-	};
+	"name": "George Kanchanavaleerat",
+	"role": "Front End Web Developer",
+	"welcomeMessage": "Hello there!",
+	"contacts": {
+		/*"mobile": "360-111-1111",*/
+		"email": "gkandoit-0001@yahoo.com",
+		"twitter": "@gkanch",
+		"github": "gkanch",
+		"location": "Vancouver, WA",
+		"locationLatLng": new google.maps.LatLng(45.6387281, -122.66148609999999)
+	},
+	"skills": ["Programming", "Youth Ministry Leadership", "Montessori Preschool Teacher"],
+	"bioPic": "images/georgesm.jpg"
+};
 
 var work = {
 	"jobs": [
@@ -20,6 +21,7 @@ var work = {
 		"employer": "Siam First Tour",
 		"title": "Operation Manager",
 		"location": "Bangkok, Thailand",
+		"locationLatLng": new google.maps.LatLng(13.7278956, 100.52412349999997),
 		"dates": "from 1/1/1995 to 12/1/1995",
 		"description": "Operation manager at a long distance bus company."
 	},
@@ -27,6 +29,7 @@ var work = {
 		"employer": "Nike",
 		"title": "Technology Manager",
 		"location": "Beaverton, OR",
+		"locationLatLng": new google.maps.LatLng(45.48706199999999, -122.80371020000001),
 		"dates": "from 8/1/1996 to 7/1/2012",
 		"description": "Design, roll out, and maintain project tracking application."
 	}]
@@ -53,6 +56,7 @@ var education = {
         {
             "name": "Washington State U.",
 			"location": "Pullman, WA",
+			"locationLatLng": new google.maps.LatLng(46.7297771, -117.18173769999999),
 			"degree": "BS",
             "majors": ["Mechanical Engineering"],
             "gradYear": 1994,
@@ -61,6 +65,7 @@ var education = {
         {
             "name": "Loyola University Maryland",
 			"location": "Baltimore, MD",
+			"locationLatLng": new google.maps.LatLng(39.2903848, -76.61218930000001),
 			"degree": "MA",
             "majors": ["Education"],
             "gradYear": 2012,
@@ -77,11 +82,12 @@ var education = {
 };
 
 // Header
-function populateHeader() {
+function displayHeader() {
 	var formattedHeaderBio;
 	formattedHeaderBio = HTMLbioPic.replace("%data%", bio.bioPic);
 	formattedHeaderBio += HTMLheaderName.replace("%data%", bio.name);
 	formattedHeaderBio += HTMLheaderRole.replace("%data%", bio.role);
+	formattedHeaderBio += HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
 	$("#header").prepend(formattedHeaderBio);
 	
 	// Header Summary of Skills
@@ -166,7 +172,7 @@ projects.display = function() {
 }
 
 // Education - schools
-function populateEducation() {
+function displayEducation() {
 	for (var school in education.schools) {
 		$("#education").append(HTMLschoolStart);
 		
@@ -215,17 +221,17 @@ function populateEducation() {
 }
 
 // Google maps
-function AddMap() {
+function displayMap() {
 	$("#mapDiv").append(googleMap);
 	initializeMap();
 }
 
 // Add data to form
-populateHeader();
+displayHeader();
 displayWork();
 projects.display();
-populateEducation();
-AddMap();
+displayEducation();
+displayMap();
 
 // Add Button to automate Capitalization of all lastname letters
 $('#main').append(internationalizeButton);
