@@ -10,11 +10,9 @@
 }
 
 h1 {
-
   font-size: 40px;
-  color: #F5A623;
+  color: #B24923; /*BD744E F5A623*/
   line-height: 48px;
-  display: inline;
 }
 
 h2 {
@@ -50,7 +48,6 @@ h2, h3, h4, h5 {
   font-size: 14px;
   color: #999999;
   line-height: 16px;
-  float: left;
 }
 
 .location-text {
@@ -58,7 +55,6 @@ h2, h3, h4, h5 {
   font-size: 14px;
   color: #999999;
   line-height: 16px;
-  float: right;
 }
 
 p {
@@ -70,52 +66,47 @@ p {
 a {
   color: #1199C3;
   text-decoration: none;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   display: block;
 }
 
 .welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #F3F3F3;
   line-height: 28px;
-}
-
-#skillsH3 {
-  color: #F5AE23;
-  display: none;
-}
-
-#skills {
-  display: none;
+  font-size: 24px;
 }
 
 .orange {
-  background-color: #F5AE23;
+  background-color: #B24A12;
 }
 
 .orange-text {
-  color: #F5AE23;
+  color: #FF9B78; /*#FF5A00*/
 }
 
 .white-text {
-  font-weight: bold;
-  color: #FFFFFF;
+  /*font-weight: bold;*/
+  color: #B24923; /*#B24A12*/
 }
 
 .gray {
-  background-color: #F3F3F3;
+  background-color: #F5F5F5;
   padding-bottom: 10px;
   clear:both;
 }
 
 .dark-gray {
-  background-color: #4A4A4A;
+  background-color: #06357F;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #ddd;
+  background-color: #F5F5FF;
+}
+
+.flexboxTitle {
+  color: #3c763d; /*#F5AE23;*/
+  font-weight: bold;
+  text-align: left;
 }
 
 .flex-box {
@@ -125,6 +116,12 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.flex-item {
+	vertical-align: central;	
 }
 
 .center-content {
@@ -135,18 +132,20 @@ ul {
   list-style-type: none;
 }
 
+.list-group-item {
+  border: thin; /*1px dotted #ddd;*/
+  /*border: 1px solid #ddd;*/
+}
 
 .biopic {
-  float: left;
   padding: 10px;
-  width: 200px;
-  display: none;
+  display: inline-block;
+  width: 120px;
 }
 
 img {
   padding: 10px;
 }
-
 
 /* Bar chart stuff */
 .chart div {
@@ -168,6 +167,33 @@ span {
   text-align: center;
 }
 
+.container {
+	margin-top: 40px;
+	margin-bottom: 15px;
+	border-radius: 10px;
+	background: #F5F5F5;
+}
+
+h1 small {
+	color: #6E6EEB;
+}
+
+#map {
+  display: block;
+  height: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#mapDiv {
+  height: 450px;
+  width: 90%;
+  padding-bottom: 1%;
+  margin-left: 5%;
+  /*margin-right: 5%;*/
+  background-color: #fff;
+}
+
 @media only screen and (max-width: 1024px) {
   #letsConnect {
     margin-top: 5%;
@@ -175,41 +201,28 @@ span {
 }
 
 @media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
+
 }
 
 @media only screen and (max-width: 750px) {
   #letsConnect {
     margin-top: 10%;
   }
-  .biopic {
-    width: 150px;
-  }
+  
   .welcome-message {
-    display: inline;
+	line-height: 28px;
+	font-size: 20px;
+  }
+  
+  .flex-box {
+	flex-direction: column;
   }
 }
 
 @media only screen and (min-width: 750px) {
   #skillsH3,
-  #skills,
-  .biopic {
-    display: block;
+  #skills {
+    display: flex;
   }
-}
-
-#map {
-  display: block;
-  height: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
 }
 
